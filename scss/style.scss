@@ -1,0 +1,222 @@
+@import "reset";
+
+$main-shadow: #00000059 0px 5px 15px;
+$main-light-color: #fff;
+$main-dark-color: #222;
+$main-success-color: #14c414;
+$main-warning-color: #ffd700;
+$main-danger-color: #ee3b3b;
+$main-border-radius-xl: 15px;
+$main-border-radius-l: 10px;
+$main-border-radius-s: 5px;
+
+body{
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.todolist{
+  width: 100%;
+  max-width: 480px;
+  height: 700px;
+  box-shadow: $main-shadow;
+  border-radius: $main-border-radius-xl;
+  padding: 16px;
+}
+
+.todolist__controller{
+  width: 100%;
+  height: 200px;
+  box-shadow: $main-shadow;
+  border-radius: $main-border-radius-l;
+  padding: 20px;
+}
+
+form{
+  display: flex;
+  width: 100%;
+  gap: 0 10px;
+  button{
+    background-color: $main-success-color;
+    text-transform: capitalize;
+    padding: 0 16px;
+    font-size: 18px;
+    color: #fff;
+    border-radius: $main-border-radius-s;
+    border: none;
+    cursor: pointer;
+    box-shadow: $main-shadow;
+    &:active{
+      transform: scale(1.1);
+    }
+  }
+}
+
+.todolist__input-wrapper{
+  box-shadow: $main-shadow;
+  height: 50px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: $main-border-radius-s;
+  input{
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+  }
+
+  i{
+    color: $main-danger-color;
+    cursor: pointer;
+  }
+}
+
+.todolist__deleteall{
+  background-color: $main-danger-color;
+  color: #fff;
+  border: none;
+  padding: 15px 20px;
+  font-size: 18px;
+  border-radius: $main-border-radius-s;
+  margin-top: 50px;
+}
+
+.todolist__taskcontainer{
+  display: flex;
+  flex-direction: column;
+  gap: 15px 0;
+  padding: 20px 0;
+  font-family: sans-serif;
+  height: 450px;
+  overflow-y: auto;
+  &::-webkit-scrollbar{
+    display: none;
+  }
+}
+
+.todolist__item{
+  box-shadow: $main-shadow;
+  max-width: 95%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 16px;
+  position: relative;
+  border-radius: $main-border-radius-s;
+  .todolist__title  {
+    font-size: 18px;
+    font-weight: 600;
+    display: block;
+    padding: 5px 0;
+    word-break: break-all;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    z-index: 2;
+    position: relative;
+    &--active{
+      text-decoration: line-through; 
+      padding: 5px 15px; 
+      color: #fff; 
+      background: #14c414;
+    }
+  }
+
+  small {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 12px;
+    color: gray;
+  }
+  
+}
+
+.bounce__item{
+  &:first-child{
+    animation: bounce 0.5s;
+  }
+}
+
+@keyframes bounce{
+  0%{
+    transform: scale(1.1);
+  }
+  25%{
+    transform: scale(0.7);
+  }
+  50%{
+    transform: scale(1.05);
+  }
+  75%{
+    transform: scale(0.8);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+.todolist__actions{
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todolist-btn{
+  width: 90px;
+  padding: 14px 0;
+  border: none;
+  color: #fff;
+  border-radius: $main-border-radius-s;
+  position: relative;
+  i{
+    pointer-events: none;
+  }
+}
+
+.complete{
+  background-color: $main-success-color;
+}
+
+.edit{
+  background-color: $main-warning-color;
+}
+
+.time{
+  background-color: dodgerblue;
+}
+
+.done{
+  background-color: blueviolet;
+}
+
+.delete{
+  background-color: $main-danger-color;
+}
+
+.additonal__time{
+  position: absolute;
+  background-color: $main-dark-color;
+  color: #fff;
+  padding: 10px;
+  font-size: 13px;
+  top: -40px;
+  border-radius: $main-border-radius-s;
+  transform: scale(0);
+  left: 5px;
+  transition: 0.2s;
+  opacity: 0;
+}
+
+.time:hover > .additonal__time{
+  transform: scale(1);
+  opacity: 1;
+}
+
+.deleted{
+  transition: 0.5s;
+  opacity: 0;
+  transform: translateX(-100%);
+}
