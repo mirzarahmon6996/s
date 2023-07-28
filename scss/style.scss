@@ -10,13 +10,15 @@ $main-border-radius-xl: 15px;
 $main-border-radius-l: 10px;
 $main-border-radius-s: 5px;
 
-body{
+body {
   display: grid;
   place-items: center;
   height: 100vh;
 }
-
-.todolist{
+button{
+  cursor: pointer;
+}
+.todolist {
   width: 100%;
   max-width: 480px;
   height: 700px;
@@ -25,7 +27,7 @@ body{
   padding: 16px;
 }
 
-.todolist__controller{
+.todolist__controller {
   width: 100%;
   height: 200px;
   box-shadow: $main-shadow;
@@ -33,11 +35,11 @@ body{
   padding: 20px;
 }
 
-form{
+form {
   display: flex;
   width: 100%;
   gap: 0 10px;
-  button{
+  button {
     background-color: $main-success-color;
     text-transform: capitalize;
     padding: 0 16px;
@@ -47,13 +49,13 @@ form{
     border: none;
     cursor: pointer;
     box-shadow: $main-shadow;
-    &:active{
+    &:active {
       transform: scale(1.1);
     }
   }
 }
 
-.todolist__input-wrapper{
+.todolist__input-wrapper {
   box-shadow: $main-shadow;
   height: 50px;
   flex: 1;
@@ -61,7 +63,7 @@ form{
   align-items: center;
   padding: 0 10px;
   border-radius: $main-border-radius-s;
-  input{
+  input {
     height: 100%;
     width: 100%;
     border: none;
@@ -69,13 +71,13 @@ form{
     font-size: 18px;
   }
 
-  i{
+  i {
     color: $main-danger-color;
     cursor: pointer;
   }
 }
 
-.todolist__deleteall{
+.todolist__deleteall {
   background-color: $main-danger-color;
   color: #fff;
   border: none;
@@ -85,7 +87,7 @@ form{
   margin-top: 50px;
 }
 
-.todolist__taskcontainer{
+.todolist__taskcontainer {
   display: flex;
   flex-direction: column;
   gap: 15px 0;
@@ -93,12 +95,12 @@ form{
   font-family: sans-serif;
   height: 450px;
   overflow-y: auto;
-  &::-webkit-scrollbar{
+  &::-webkit-scrollbar {
     display: none;
   }
 }
 
-.todolist__item{
+.todolist__item {
   box-shadow: $main-shadow;
   max-width: 95%;
   width: 100%;
@@ -106,7 +108,7 @@ form{
   padding: 16px;
   position: relative;
   border-radius: $main-border-radius-s;
-  .todolist__title  {
+  .todolist__title {
     font-size: 18px;
     font-weight: 600;
     display: block;
@@ -116,10 +118,10 @@ form{
     border: 1px solid transparent;
     z-index: 2;
     position: relative;
-    &--active{
-      text-decoration: line-through; 
-      padding: 5px 15px; 
-      color: #fff; 
+    &--active {
+      text-decoration: line-through;
+      padding: 5px 15px;
+      color: #fff;
       background: #14c414;
     }
   }
@@ -131,72 +133,71 @@ form{
     font-size: 12px;
     color: gray;
   }
-  
 }
 
-.bounce__item{
-  &:first-child{
+.bounce__item {
+  &:first-child {
     animation: bounce 0.5s;
   }
 }
 
-@keyframes bounce{
-  0%{
+@keyframes bounce {
+  0% {
     transform: scale(1.1);
   }
-  25%{
+  25% {
     transform: scale(0.7);
   }
-  50%{
+  50% {
     transform: scale(1.05);
   }
-  75%{
+  75% {
     transform: scale(0.8);
   }
-  100%{
+  100% {
     transform: scale(1);
   }
 }
 
-.todolist__actions{
+.todolist__actions {
   margin-top: 15px;
   display: flex;
   justify-content: space-between;
 }
 
-.todolist-btn{
+.todolist-btn {
   width: 90px;
   padding: 14px 0;
   border: none;
   color: #fff;
   border-radius: $main-border-radius-s;
   position: relative;
-  i{
+  i {
     pointer-events: none;
   }
 }
 
-.complete{
+.complete {
   background-color: $main-success-color;
 }
 
-.edit{
+.edit {
   background-color: $main-warning-color;
 }
 
-.time{
+.time {
   background-color: dodgerblue;
 }
 
-.done{
+.done {
   background-color: blueviolet;
 }
 
-.delete{
+.delete {
   background-color: $main-danger-color;
 }
 
-.additonal__time{
+.additonal__time {
   position: absolute;
   background-color: $main-dark-color;
   color: #fff;
@@ -210,12 +211,12 @@ form{
   opacity: 0;
 }
 
-.time:hover > .additonal__time{
+.time:hover > .additonal__time {
   transform: scale(1);
   opacity: 1;
 }
 
-.deleted{
+.deleted {
   transition: 0.5s;
   opacity: 0;
   transform: translateX(-100%);
